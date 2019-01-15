@@ -15,7 +15,9 @@ export default class Confirmation extends Component {
     }
 
     render() {
-        const { code } = this.props;
+        const { navigation } = this.props;
+        const code = navigation.getParam("code", "XXXXXXXX");
+
         return (
             <View style={styles.container}>
                 <Text style={styles.header}>Your confirmation code</Text>
