@@ -13,10 +13,9 @@ import {
 } from 'react-native';
 import { defaultStyles } from './styles';
 import Prop from "prop-types";
+import Options from "./Options";
 
-// Get screen dimensions
 const { width, height } = Dimensions.get('window');
-// Set default popup height to 67% of screen height
 const defaultHeight = height * 0.67;
 
 export default class MoviePopup extends Component {
@@ -258,21 +257,23 @@ export default class MoviePopup extends Component {
                             </View>
                         </View>
 
-                        {/* Showtimes */}
                         <View>
-                            {/* Day */}
                             <Text style={styles.sectionHeader}>Day</Text>
-                            {/* TODO: Add day options here */}
-                            <Text>Add day options here</Text>
-                            {/* Time */}
+                            <Options
+                                values={days}
+                                chosen={chosenDay}
+                                onChoose={onChooseDay}
+                            />
                             <Text style={styles.sectionHeader}>Showtime</Text>
-                            {/* TODO: Add show time options here */}
-                            <Text>Add show time options here</Text>
+                            <Options
+                                values={times}
+                                chosen={chosenTime}
+                                onChoose={onChooseTime}
+                            />
                         </View>
 
                     </View>
 
-                    {/* Footer */}
                     <View style={styles.footer}>
                         <TouchableHighlight
                             underlayColor="#9575CD"

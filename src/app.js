@@ -14,9 +14,14 @@ const RootStack = createStackNavigator(
     {
         initialRouteName: "Movies"
     },
+    {
+        headerMode: 'none',
+        navigationOptions: {
+            headerVisible: false,
+        }
+    }
 )
 
 const App = createAppContainer(RootStack);
-
 
 export default App;
