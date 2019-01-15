@@ -8,19 +8,15 @@ import {
     View
 } from 'react-native';
 import { defaultStyles } from './styles';
+import Prop from "prop-types";
 
-// Get screen dimensions
 const { width, height } = Dimensions.get('window');
-// How many posters we want to have in each row and column
 const cols = 3, rows = 3;
 
 export default class MoviePoster extends Component {
-    // Component prop types
     static propTypes = {
-        // Movie object with title, genre, and poster
-        movie: PropTypes.object.isRequired,
-        // Called when user taps on a poster
-        onOpen: PropTypes.func.isRequired,
+        movie: Prop.object.isRequired,
+        onOpen: Prop.func.isRequired,
     }
     render() {
         const { movie, movie: { title, genre, poster }, onOpen } = this.props;
@@ -44,11 +40,11 @@ const styles = StyleSheet.create({
         width: (width - 10) / cols - 10,
     },
     imageContainer: {
-        flex: 1,                          // take up all available space
+        flex: 1,                          
     },
     image: {
-        borderRadius: 10,                 // rounded corners
-        ...StyleSheet.absoluteFillObject, // fill up all space in a container
+        borderRadius: 10,                 
+        ...StyleSheet.absoluteFillObject, 
     },
     title: {
         ...defaultStyles.text,
