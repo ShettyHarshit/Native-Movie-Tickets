@@ -4,23 +4,27 @@ import {
   createAppContainer
 } from "react-navigation";
 import Movies from './Movies';
+import Confirmation from './Confirmation';
 
 const RootStack = createStackNavigator(
-    {
-        Movies: {
-            screen: Movies
-        }
+  {
+    Movies: {
+      screen: Movies
     },
-    {
-        initialRouteName: "Movies"
-    },
-    {
-        headerMode: 'none',
-        navigationOptions: {
-            headerVisible: false,
-        }
+    Confirmation: {
+      screen: Confirmation
     }
-)
+  },
+  {
+    initialRouteName: "Movies"
+  },
+  {
+    headerMode: "none",
+    navigationOptions: {
+      headerVisible: false
+    }
+  }
+);
 
 const App = createAppContainer(RootStack);
 

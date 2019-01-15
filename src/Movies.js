@@ -16,6 +16,30 @@ export default class Movies extends Component {
         chosenTime: null,
     }
 
+    bookTicket = () => {
+        if (!this.state.chosenTime) {
+            alert('Please select show time');
+        } else {
+            this.closeMovie();
+            function dec2hex(dec) {
+                return ('0' + dec.toString(16)).substr(-2)
+            }
+
+            function generateId(len) {
+                var arr = new Uint8Array((len || 40) / 2)
+                window.crypto.getRandomValues(arr)
+                return Array.from(arr, dec2hex)
+                  .join("")
+                  .toUpperCase();
+            }
+            let code = generateId(8);
+
+            this.props.navigation.navigate("Confirmation", {
+                code: code,
+            });
+        }
+    }
+
     openMovie = (movie) => {
         this.setState({
             popupIsOpen: true,
@@ -65,6 +89,7 @@ export default class Movies extends Component {
                     chosenTime={this.state.chosenTime}
                     onChooseDay={this.chooseDay}
                     onChooseTime={this.chooseTime}
+                    onBook={this.bookTicket}
                 />
             </View>
         );
