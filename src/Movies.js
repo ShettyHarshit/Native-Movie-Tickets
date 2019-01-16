@@ -62,7 +62,7 @@ export default class Movies extends Component {
     
     render() {
         return (
-            <View>
+            <View style={styles.container}>
             <ScrollView
             contentContainerStyle={styles.scrollContent}
             showsHorizontalScrollIndicator={false}
