@@ -9,12 +9,11 @@ import {
     Text,
     TouchableHighlight,
     TouchableWithoutFeedback,
-    View
+    View,
 } from 'react-native';
 import { defaultStyles } from './styles';
 import Prop from "prop-types";
 import Options from "./Options";
-import Confirmation from "./Confirmation";
 
 const { width, height } = Dimensions.get('window');
 const defaultHeight = height * 0.67;

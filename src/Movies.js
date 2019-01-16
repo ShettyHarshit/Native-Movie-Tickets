@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
     ScrollView,
     StyleSheet,
-    View
+    View,
+    StatusBar
 } from 'react-native';
 import { movies } from './data';
 import MoviePoster from "./MoviePoster";
@@ -63,6 +64,7 @@ export default class Movies extends Component {
     render() {
         return (
             <View style={styles.container}>
+            <StatusBar barStyle="light-content" backgroundColor="transparent" translucent={true}/>
             <ScrollView
             contentContainerStyle={styles.scrollContent}
             showsHorizontalScrollIndicator={false}
@@ -88,7 +90,6 @@ export default class Movies extends Component {
                 );
             }
         }
-        
         
         const styles = StyleSheet.create({
             container: {
