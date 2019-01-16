@@ -16,13 +16,9 @@ const RootStack = createStackNavigator(
     }
   },
   {
-    initialRouteName: "Movies"
-  },
-  {
-    headerMode: "none",
-    navigationOptions: {
-      headerVisible: false
-    }
+    initialRouteName: "Movies",
+    mode: 'modal',
+    headerMode: 'none'
   }
 );
 
