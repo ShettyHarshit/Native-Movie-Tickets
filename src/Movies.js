@@ -8,6 +8,7 @@ import {
 import { movies } from './data';
 import MoviePoster from "./MoviePoster";
 import MoviePopup from "./MoviePopup";
+import SplashScreen from "react-native-splash-screen";
 
 export default class Movies extends Component {
     
@@ -59,6 +60,10 @@ export default class Movies extends Component {
         this.setState({
             chosenTime: time,
         });
+    }
+
+    componentDidMount() {
+        SplashScreen.hide();
     }
     
     render() {

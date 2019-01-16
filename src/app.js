@@ -5,6 +5,7 @@ import {
 } from "react-navigation";
 import Movies from './Movies';
 import Confirmation from './Confirmation';
+import SplashScreen from "react-native-splash-screen";
 
 const RootStack = createStackNavigator(
   {
