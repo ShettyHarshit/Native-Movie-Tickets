@@ -12,7 +12,7 @@ export default class Movies extends Component {
     
     state = {
         popupIsOpen: false,
-        chosenDay: 0,       // choose first day by default
+        chosenDay: 0, 
         chosenTime: null,
     }
     
@@ -92,11 +92,11 @@ export default class Movies extends Component {
         
         const styles = StyleSheet.create({
             container: {
-                paddingTop: 20,         // start below status bar
+                paddingTop: 20,         
             },
             scrollContent: {
-                flexDirection: 'row',   // arrange posters in rows
-                flexWrap: 'wrap',       // allow multiple rows
+                flexDirection: 'row',   
+                flexWrap: 'wrap',       
             },
         });
         
