@@ -1,42 +1,63 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
-    Dimensions,
-    Image,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View
-} from 'react-native';
-import { defaultStyles } from './styles';
+  Dimensions,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
+} from "react-native";
+import { defaultStyles } from "./styles";
 import Prop from "prop-types";
-import Heart from './heart.png';
+import Heart from "./heart.png";
 
-const { width, height } = Dimensions.get('window');
-const cols = 3, rows = 3;
+const { width, height } = Dimensions.get("window");
+const cols = 3,
+  rows = 3;
 
 export default class MoviePoster extends Component {
-    static propTypes = {
-        movie: Prop.object.isRequired,
-        onOpen: Prop.func.isRequired,
+
+    state = {
+        rating : 71
     }
-    render() {
-        const { movie, movie: { title, genre, poster }, onOpen } = this.props;
-        return <TouchableOpacity style={styles.container} onPress={() => onOpen(movie)}>
-            <View style={styles.imageContainer}>
-              <Image source={{ uri: poster }} style={styles.image} />
-            </View>
-            <Text style={styles.title} numberOfLines={1}>
-              {title}
-            </Text>
-            <Text style={styles.genre} numberOfLines={1}>
-              {genre}
-            </Text>
-            <Text style={styles.like} numberOfLines={1}>
-              <Image style={styles.heart} source={Heart} />
-              91%     
-            </Text>
-          </TouchableOpacity>;
-    }
+  
+  static propTypes = {
+    movie: Prop.object.isRequired,
+    onOpen: Prop.func.isRequired
+  }
+
+  componentDidMount(){
+    let rating = Math.random();
+    rating *= 10;
+    rating = Math.floor(rating) +77;
+    rating = " " + rating
+    this.setState({ rating : rating}) 
+  }
+
+  render() {
+    const {
+      movie,
+      movie: { title, genre, poster },
+      onOpen
+    } = this.props;
+    return (
+      <TouchableOpacity style={styles.container} onPress={() => onOpen(movie)}>
+        <View style={styles.imageContainer}>
+          <Image source={{ uri: poster }} style={styles.image} />
+        </View>
+        <Text style={styles.title} numberOfLines={1}>
+          {title}
+        </Text>
+        <Text style={styles.genre} numberOfLines={1}>
+          {genre}
+        </Text>
+        <Text style={styles.like} numberOfLines={1}>
+          <Image style={styles.heart} source={Heart} />
+          {this.state.rating}%
+        </Text>
+      </TouchableOpacity>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -64,8 +85,8 @@ const styles = StyleSheet.create({
     marginTop: 2
   },
   heart: {
-      width: 15,
-      height: 15
+    width: 15,
+    height: 15
   },
   genre: {
     ...defaultStyles.text,
